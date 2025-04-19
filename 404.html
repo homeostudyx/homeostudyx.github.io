@@ -1,1 +1,35 @@
-AZHAR
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Share Viewer</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 30px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Shared ID</h2>
+  <input type="text" id="shareBox" readonly />
+
+  <script>
+    const path = window.location.pathname;
+
+    if (path.startsWith("/share/")) {
+      const id = path.split("/share/")[1];
+      document.getElementById("shareBox").value = id;
+    } else {
+      document.body.innerHTML = "<h1>404 - Not a Share Link</h1>";
+    }
+  </script>
+
+</body>
+</html>
